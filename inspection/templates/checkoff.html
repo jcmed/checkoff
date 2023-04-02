@@ -1,8 +1,83 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 
 {% block content %}
 
-<h1>Unit Checkoffs</h1>
 
+
+
+<div class="container">
+   	<div class="row">
+      	<div class="col-lg-4 mb-3">
+			<div class="card" style="width: 100%;background: black;">
+				
+					<h5><center>Completed Inspections<center></h5>
+					<table class="table table-sm table-dark">
+					<tr>
+			    		<th>Date</th>
+			    		<th>Unit</th>
+			    		<th>Status</th>
+			  		</tr>
+
+					  {%for i in allData%}
+					<tr>
+							<td>{{i.field_3_raw.date}}</td>
+							<td>{{i.field_4_raw.0.identifier }}</td>
+							{% if field_2007 == "complete" %}
+							<td>Stock Filled</td>
+							{% else %}
+							<td>{{i.field_2007}}</td>
+							{% endif %}
+					</tr>
+					{%endfor%}
+					</table>
+				
+			</div>
+		</div>
+		<div class="col-lg-3 mb-3">
+			<div class="card" style="width: 100%;background: black;">	
+				
+					<h5><center>Waiting For Approval<center></h5>
+					<table class="table table-sm table-dark">
+					  {%for i in records%}
+					<tr>
+						<td>{{i.field_5}}</td>
+					</tr>
+					{%endfor%}
+					</table>
+				
+			</div>
+		</div>
+		<div class="col-lg-5 mb-3">
+			
+			<div class="card" style="width: 100%; background: black;">		
+				
+					<h5><center>Missing/Incomplete Rerports<center></h5>
+					<table class="table table-sm table-dark">
+					<tr>
+			    		<th>Date</th>
+			    		<th>Run Number</th>
+			    		<th>Crew</th>
+			    		<th>Status</th>
+			    		<th>Unit</th>
+			    		
+			  		</tr>
+
+					  {%for report in reports %}
+					<tr>
+						<td>{{report.date}}</td>
+						<td>{{report.number}}</td>
+						<td>{{report.crew}}</td>
+						<td>{{report.status}}</td>
+						<td>M {{report.unit}}</td>
+						
+					</tr>
+					{%endfor%}
+					</table>
+					
+				
+			</div>
+		</div>
+	</div>		
+</div>
 {% endblock %}
