@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
-    'https://checkoff-production-b701.up.railway.app'
+    'https://checkoff-production.up.railway.app'
 ]
 
 # Application definition
