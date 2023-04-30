@@ -64,7 +64,7 @@ def checkoff(request):
 	    "authority": "us-east-1-renderer-read.knack.com",
 	    "accept": "application/json",
 	    "accept-language": "en-US,en;q=0.9",
-	    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTQwYzcwNTY5ZjNjNmQ3MzNjYjk4YmU1IiwiYXBwbGljYXRpb25faWQiOiI1M2ViYThlOWFjOWMxM2ExMGNiZGQwMzUiLCJpYXQiOjE2ODI4MjQ0Mzd9.AfQT_oBxIQYV-00fB_XYf6YxEedsBzdZah6Jp1E6qzs",
+	    "authorization": "Bearer {{ emstat }}",
 	    "referer": "https://us-east-1-renderer-read.knack.com/api/xdc.html?xdm_e=https^%^3A^%^2F^%^2Fwww.emstatpro.com&xdm_c=default391&xdm_p=1",
 	    "sec-ch-ua": "^\^Chromium^^;v=^\^110^^, ^\^Not",
 	    "sec-ch-ua-mobile": "?0",
@@ -85,7 +85,7 @@ def checkoff(request):
 	j=json.dumps(rec)
 	df = DataFrame(rec)
 	
-	
+	#eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTQwYzcwNTY5ZjNjNmQ3MzNjYjk4YmU1IiwiYXBwbGljYXRpb25faWQiOiI1M2ViYThlOWFjOWMxM2ExMGNiZGQwMzUiLCJpYXQiOjE2ODI4MjQ0Mzd9.AfQT_oBxIQYV-00fB_XYf6YxEedsBzdZah6Jp1E6qzs
 
 
 
