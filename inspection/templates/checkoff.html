@@ -48,36 +48,7 @@
 				
 			</div>
 		</div>
-		<div class="col-lg-5 mb-3">
-			
-			<div class="card" style="width: 100%; background: black;">		
-				
-					<h5 style="color:white;"><center>Missing/Incomplete Rerports<center></h5>
-					<table class="table table-sm table-dark">
-					<tr>
-			    		<th>Date</th>
-			    		<th>Run Number</th>
-			    		<th>Crew</th>
-			    		<th>Status</th>
-			    		<th>Unit</th>
-			    		
-			  		</tr>
-
-					  {%for report in reports %}
-					<tr>
-						<td>{{report.date}}</td>
-						<td>{{report.number}}</td>
-						<td>{{report.crew}}</td>
-						<td>{{report.status}}</td>
-						<td>M {{report.unit}}</td>
-						
-					</tr>
-					{%endfor%}
-					</table>
-					
-				
-			</div>
-		</div>
+	
 	</div>		
 </div>
 {% endblock %}
