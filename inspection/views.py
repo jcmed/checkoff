@@ -4,6 +4,10 @@ from .forms import ReportsForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
+import os
+
+
+
 def home(request):
 	return render(request, 'home.html', {})
 
@@ -11,6 +15,10 @@ def api(request):
 	if 'key' in request.GET:
 		pass
 	return render(request, 'api.html',{})
+
+def runreports(request):
+	reports= Reports.objects.all
+	return render(request, 'runreports.html', {'reports': reports})
 
 def reports(request):
 	if request.method=='POST':
@@ -51,12 +59,13 @@ def checkoff(request):
 	import requests
 	from pandas import DataFrame
 	import pandas as pd
+	
 
 	comp_url=url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_114/views/view_191/records"
 	old_url=url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_1461/views/view_2549/records"
 	incom_url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_114/views/view_2517/records"
 	#querystring = {"format":"application/json","is today":"^%^22^%^2C^%"}
-
+	
 
 	payload = ""
 	headers = {
@@ -64,7 +73,7 @@ def checkoff(request):
 	    "authority": "us-east-1-renderer-read.knack.com",
 	    "accept": "application/json",
 	    "accept-language": "en-US,en;q=0.9",
-	    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTQwYzcwNTY5ZjNjNmQ3MzNjYjk4YmU1IiwiYXBwbGljYXRpb25faWQiOiI1M2ViYThlOWFjOWMxM2ExMGNiZGQwMzUiLCJpYXQiOjE2ODI4MjQ0Mzd9.AfQT_oBxIQYV-00fB_XYf6YxEedsBzdZah6Jp1E6qzs",
+	    "authorization": os.environ['BEARER_TOKEN'],
 	    "referer": "https://us-east-1-renderer-read.knack.com/api/xdc.html?xdm_e=https^%^3A^%^2F^%^2Fwww.emstatpro.com&xdm_c=default391&xdm_p=1",
 	    "sec-ch-ua": "^\^Chromium^^;v=^\^110^^, ^\^Not",
 	    "sec-ch-ua-mobile": "?0",

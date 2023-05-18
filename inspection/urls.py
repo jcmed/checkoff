@@ -7,6 +7,7 @@ urlpatterns = [
     path('reports', views.reports, name="reports"),
     path('delete/<reports_id>',views.delete, name= 'delete'),
     path('edit/<reports_id>', views.edit, name= 'edit'),
+    path('runreports', views.runreports, name="runreports"),
 
     
 ]
