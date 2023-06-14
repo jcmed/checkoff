@@ -64,8 +64,8 @@ def checkoff(request):
 	comp_url=url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_114/views/view_191/records"
 	old_url=url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_1461/views/view_2549/records"
 	incom_url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_114/views/view_2517/records"
-	#querystring = {"format":"application/json","is today":"^%^22^%^2C^%"}
 	
+	querystring = querystring = {"page":"1","rows_per_page":"50"}
 
 	payload = ""
 	headers = {
@@ -73,6 +73,7 @@ def checkoff(request):
 	    "authority": "us-east-1-renderer-read.knack.com",
 	    "accept": "application/json",
 	    "accept-language": "en-US,en;q=0.9",
+	    
 	    "authorization": os.environ['BEARER_TOKEN'],
 	    "referer": "https://us-east-1-renderer-read.knack.com/api/xdc.html?xdm_e=https^%^3A^%^2F^%^2Fwww.emstatpro.com&xdm_c=default391&xdm_p=1",
 	    "sec-ch-ua": "^\^Chromium^^;v=^\^110^^, ^\^Not",
@@ -88,7 +89,7 @@ def checkoff(request):
 	    "x-requested-with": "XMLHttpRequest"
 	}
 	####get completed data into DF####
-	response = requests.request("GET", comp_url, data=payload, headers=headers)
+	response = requests.request("GET", comp_url, data=payload, headers=headers, params=querystring)
 	api= json.loads(response.content)
 	rec= (api["records"])
 	j=json.dumps(rec)
