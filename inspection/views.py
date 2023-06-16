@@ -65,7 +65,7 @@ def checkoff(request):
 	old_url=url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_1461/views/view_2549/records"
 	incom_url = "https://us-east-1-renderer-read.knack.com/v1/scenes/scene_114/views/view_2517/records"
 	
-	querystring = querystring = {"page":"1","rows_per_page":"50"}
+	querystring = querystring = {"page":"1","rows_per_page":"100"}
 
 	payload = ""
 	headers = {
