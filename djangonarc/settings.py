@@ -23,6 +23,8 @@ load_dotenv()
 
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -84,15 +86,15 @@ WSGI_APPLICATION = 'djangonarc.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['NAME'],
-        'USER': os.environ['USER'],
-        'PASSWORD': os.environ['PASSWORD'],
-        'HOST': 'containers-us-west-49.railway.app',
-        'PORT': '5681',   }
-}
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': os.environ['NAME'],
+        #'USER': os.environ['USER'],
+        #'PASSWORD': os.environ['PASSWORD'],
+        #'HOST': 'containers-us-west-49.railway.app',
+       # 'PORT': '5681',   }
+#}
 
 
 # Password validation
