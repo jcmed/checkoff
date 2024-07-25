@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Django Project</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Your HTML content -->
+
+<script>
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "{% url 'fetch_api_data' %}",
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+        },
+        success: function(response) {
+            console.log(response);
+            // Process the response here
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

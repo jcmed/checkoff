@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <title>Test</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<style>
+    * {
+        background: black;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 80px;
+        background: rgb(15, 10, 10);
+        padding: .4rem .8rem;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.active ~ .main-contact {
+        left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    .sidebar.active {
+        width: 250px;
+    }
+
+    .sidebar #btn {
+        position: relative;
+        color: white;
+        top: 0;
+        left: 20%;
+        font-size: 1.2rem;
+        line-height: 50px;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+
+    .sidebar.active #btn {
+        left: 90%;
+    }
+
+    .sidebar ul li {
+        position: relative;
+        list-style-type: none;
+        height: 75px;
+        width: 90%;
+        margin: 0.8rm auto;
+        line-height: 50px;
+    }
+
+    .sidebar #btn-news {
+        position: relative;
+        color: white;
+        top: 0;
+        left: 5%;
+        font-size: 2.5rem;
+        line-height: 50px;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+
+    .sidebar #btn-cal {
+        position: relative;
+        color: white;
+        top: 0;
+        left: 5%;
+        font-size: 2.5rem;
+        line-height: 50px;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+</style>
+<body>
+<div class="sidebar">
+    <div class="top">
+        <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <div class="user">
+    </div>
+    <ul>
+        <!-- Button trigger news modal -->
+        <li>
+            <i class="bx bx-news" id="btn-news" data-bs-toggle="modal" data-bs-target="#newsModal"></i>
+        </li>
+        <!-- Button trigger calendar modal -->
+        <li>
+            <i class="bx bx-calendar" id="btn-cal" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bxs-ambulance'></i>
+                <span class="nav-item">Unit Status</span>
+            </a>
+            <span class="tooltip">Unit Status</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-share-alt'></i>
+                <span class="nav-item">LINKS</span>
+            </a>
+            <span class="tooltip">LINKS</span>
+        </li>
+    </ul>
+</div>
+<div class="main-content">
+    <div class="container">
+    </div>
+</div>
+<!-- News Modal -->
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="newsModalLabel">News</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTzxwyE7gvJkCurBLJM4bEA0IhkS91fTrvfnGKgvXTzrMEx4QTziKjymnDk1tukArUZVm-P36XUbXKa/embed?start=true&loop=true&delayms=15000"
+                        frameborder="0"
+                        height="100%"
+                        width="100%"
+                        allowfullscreen="true"
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $("#btn-news").click(function () {
+            setTimeout(function () {
+                $('#newsModal').modal('hide'); // Use .modal('hide') to close the modal
+            }, 5000);
+        });
+    });
+</script>
+</html>

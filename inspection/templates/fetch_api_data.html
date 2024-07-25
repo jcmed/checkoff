@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Django Project</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Hello</h1>
+<!-- Your HTML content -->
+
+<script>
+    var access_token = "913c16230cfb43125cbb7098dd3a9ab9a1e693a1";
+    var base_api_url = 'https://access.active911.com/interface/open_api/api/';
+    var devices = {};
+    $.ajax({
+        type: "GET",
+        url: base_api_url,
+        beforeSend: function (xhr){
+            xhr.setRequestHeader('Authorization', "Bearer" + access_token);
+        },
+        success: function (response){
+            if (response.result == 'success'){
+                var name = respons.message.agency.name;
+                var latitude = response.message.agence.latitude;
+                var longitude = response.message.agence, longitude;
+                $( response.message.agency.devices ).each(function(i, device){
+                    devices[device.id] = {uri: device.uri};
+                });
+            } else{
+                alert('Could not connect to the API');
+            }
+        },
+        dataType: 'json'
+    });
+</script>
+
+
+
+</body>
+</html>
